@@ -119,13 +119,13 @@ const HowItWorks = () => (
         <p className="mt-4 text-navy-muted">Four steps to full automation.</p>
       </motion.div>
 
-      <div className="grid md:grid-cols-4 gap-6 relative">
+      <div className="grid md:grid-cols-4 gap-6 relative pt-6">
         {steps.map((s, i) => (
-          <Interactive3DCard key={s.step} index={i} className="h-full">
-            <div className="p-8 text-center h-full flex flex-col">
-              {/* Step number badge */}
-              <div className="absolute -top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-lg">
+          <Interactive3DCard key={s.step} index={i} className="h-full mt-5">
+            <div className="p-8 pt-10 text-center h-full flex flex-col relative">
+              {/* Step number badge — fully visible above card */}
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
+                <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-[0_4px_14px_hsl(104_58%_41%/0.35)]">
                   {s.step}
                 </div>
               </div>
