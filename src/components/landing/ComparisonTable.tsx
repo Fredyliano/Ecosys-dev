@@ -22,7 +22,7 @@ const solutions = [
 ];
 
 const ComparisonTable = () => (
-  <section className="py-32 section-teal">
+  <section className="py-32">
     <div className="container">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -35,11 +35,11 @@ const ComparisonTable = () => (
       </motion.div>
 
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {/* Without */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="p-8 md:p-10"
           style={{ borderRadius: "2.5rem", backgroundColor: "hsl(0 70% 97%)" }}
         >
@@ -59,11 +59,11 @@ const ComparisonTable = () => (
           </ul>
         </motion.div>
 
-        {/* With */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="premium-card p-8 md:p-10"
           style={{ backgroundColor: "hsl(110 40% 95%)" }}
         >

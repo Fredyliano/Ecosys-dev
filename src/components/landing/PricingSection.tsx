@@ -26,7 +26,7 @@ const plans = [
 ];
 
 const PricingSection = () => (
-  <section id="pricing" className="py-32 section-teal">
+  <section id="pricing" className="py-32">
     <div className="container">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ const PricingSection = () => (
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.12 }}
+            transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
             className={`premium-card p-8 md:p-10 flex flex-col ${
               p.featured ? "gradient-border-orange" : ""
             }`}

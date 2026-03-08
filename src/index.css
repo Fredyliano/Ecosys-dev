@@ -53,8 +53,6 @@
     --orange-start: 38 100% 71%;
     --orange-end: 18 100% 48%;
 
-    /* Teal tint for section backgrounds */
-    --teal-tint: 155 40% 95%;
     /* Success green */
     --success: 104 50% 51%;
 
@@ -72,6 +70,9 @@
 @layer base {
   * {
     @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
@@ -92,7 +93,7 @@
   }
   .premium-card:hover {
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 20px 50px rgb(0 0 0 / 0.08);
+    box-shadow: 0 20px 50px hsl(200 45% 11% / 0.08);
   }
 
   .glass-container {
@@ -109,21 +110,18 @@
     border: 2px solid transparent;
   }
 
-  .section-teal {
-    background-color: hsl(var(--teal-tint));
-  }
-
   .gradient-accent {
     background: linear-gradient(135deg, hsl(var(--fluxor)), hsl(var(--orange-end)));
   }
 
   .btn-primary-glow {
     @apply relative inline-flex items-center gap-2 font-semibold text-primary-foreground transition-all;
-    background: hsl(var(--primary));
+    background: linear-gradient(135deg, hsl(27 100% 48%), hsl(18 100% 48%));
     border-radius: 9999px;
     box-shadow: 0 0 20px hsl(var(--primary) / 0.35), 0 4px 14px hsl(var(--primary) / 0.25);
   }
   .btn-primary-glow:hover {
+    background: linear-gradient(135deg, hsl(18 100% 48%), hsl(27 100% 48%));
     box-shadow: 0 0 30px hsl(var(--primary) / 0.5), 0 6px 20px hsl(var(--primary) / 0.35);
     transform: translateY(-1px);
   }

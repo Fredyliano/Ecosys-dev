@@ -22,7 +22,6 @@ const HowItWorks = () => (
       </motion.div>
 
       <div className="grid md:grid-cols-4 gap-6 relative">
-        {/* Connecting line */}
         <div className="hidden md:block absolute top-16 left-[12.5%] right-[12.5%] h-[2px] bg-foreground/5" />
 
         {steps.map((s, i) => (
@@ -31,7 +30,7 @@ const HowItWorks = () => (
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
+            transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
             className="premium-card p-8 text-center relative"
           >
             <div className={`${s.bg} rounded-2xl w-14 h-14 flex items-center justify-center mx-auto ${s.color}`}>
