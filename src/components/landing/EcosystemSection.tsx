@@ -1,37 +1,64 @@
 import { motion } from "framer-motion";
-import { MessageSquare, BarChart3, Bot, ArrowRight } from "lucide-react";
+import { MessageSquare, BarChart3, Bot } from "lucide-react";
 
 const items = [
-  { name: "Wasync", desc: "WhatsApp Blast & Farming", icon: MessageSquare, color: "text-wasync", borderClass: "glow-card-wasync" },
-  { name: "Fluxor", desc: "Behavioral Marketing Engine", icon: BarChart3, color: "text-fluxor", borderClass: "glow-card-fluxor" },
-  { name: "Sentinel", desc: "AI CRM & Support", icon: Bot, color: "text-sentinel", borderClass: "glow-card-sentinel" },
+  { name: "Wasync", desc: "WhatsApp Blast & Farming", icon: MessageSquare, color: "text-wasync", bg: "bg-wasync/10" },
+  { name: "Fluxor", desc: "Behavioral Marketing Engine", icon: BarChart3, color: "text-fluxor", bg: "bg-fluxor/10" },
+  { name: "Sentinel", desc: "AI CRM & Support", icon: Bot, color: "text-sentinel", bg: "bg-sentinel/10" },
 ];
 
 const EcosystemSection = () => (
-  <section id="ecosystem" className="relative py-28">
-    <div className="absolute inset-0 radial-glow" />
-    <div className="container relative z-10">
-      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+  <section id="ecosystem" className="py-32">
+    <div className="container">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-20"
+      >
         <h2 className="text-4xl md:text-5xl font-extrabold text-foreground">The Ecosystem</h2>
-        <p className="mt-4 text-muted-foreground max-w-xl mx-auto">Three products. One pipeline. Full lifecycle automation.</p>
+        <p className="mt-4 text-navy-muted max-w-xl mx-auto">Three products. One pipeline. Full lifecycle automation.</p>
       </motion.div>
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+      {/* Animated step flow */}
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
         {items.map((item, i) => (
-          <div key={item.name} className="flex items-center gap-6">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }} className={`glow-card ${item.borderClass} p-8 text-center w-64`}>
-              <item.icon size={36} className={`${item.color} mx-auto mb-4`} />
+          <div key={item.name} className="flex items-center gap-0">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15 }}
+              className="premium-card p-10 text-center w-64"
+            >
+              <div className={`${item.bg} rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-5`}>
+                <item.icon size={28} className={item.color} />
+              </div>
               <h3 className={`text-xl font-bold ${item.color}`}>{item.name}</h3>
               <p className="text-sm text-muted-foreground mt-2">{item.desc}</p>
             </motion.div>
             {i < items.length - 1 && (
-              <ArrowRight size={24} className="text-muted-foreground hidden md:block" />
+              <div className="hidden md:flex items-center px-4">
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + i * 0.15, duration: 0.4 }}
+                  className="w-16 h-[2px] bg-foreground/10 origin-left"
+                />
+                <div className="w-2 h-2 rounded-full bg-primary shrink-0" />
+              </div>
             )}
           </div>
         ))}
       </div>
 
-      <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center text-sm text-muted-foreground/70 mt-12 max-w-2xl mx-auto">
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="text-center text-sm text-muted-foreground mt-16 max-w-2xl mx-auto"
+      >
         Farm numbers and broadcast campaigns → Automatically engage users based on behavior → AI handles conversations and business actions
       </motion.p>
     </div>

@@ -7,36 +7,52 @@ const plans = [
     desc: "Single product access",
     price: "$99",
     features: ["1 product access", "5,000 messages/month", "Basic analytics", "Email support"],
-    highlight: false,
+    featured: false,
   },
   {
     name: "Growth",
     desc: "Multiple product integration",
     price: "$299",
     features: ["2 products integrated", "50,000 messages/month", "Advanced analytics", "Priority support", "API access"],
-    highlight: true,
+    featured: true,
   },
   {
     name: "Enterprise",
     desc: "Full ecosystem pipeline",
     price: "Custom",
     features: ["Full ecosystem access", "Unlimited messages", "Custom infrastructure", "Dedicated account manager", "SLA guarantee", "Custom integrations"],
-    highlight: false,
+    featured: false,
   },
 ];
 
 const PricingSection = () => (
-  <section id="pricing" className="py-28 relative">
-    <div className="absolute inset-0 radial-glow" />
-    <div className="container relative z-10">
-      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+  <section id="pricing" className="py-32">
+    <div className="container">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-20"
+      >
         <h2 className="text-4xl md:text-5xl font-extrabold text-foreground">Pricing</h2>
-        <p className="mt-4 text-muted-foreground">Scale as you grow.</p>
+        <p className="mt-4 text-navy-muted">Scale as you grow.</p>
       </motion.div>
 
-      <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {plans.map((p, i) => (
-          <motion.div key={p.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className={`glow-card p-8 flex flex-col ${p.highlight ? "border-primary/50 ring-1 ring-primary/20" : ""}`}>
+          <motion.div
+            key={p.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className={`premium-card p-8 md:p-10 flex flex-col ${
+              p.featured ? "gradient-border-orange" : ""
+            }`}
+          >
+            {p.featured && (
+              <span className="text-xs font-bold uppercase tracking-widest text-primary mb-4">Most Popular</span>
+            )}
             <h3 className="text-xl font-bold text-foreground">{p.name}</h3>
             <p className="text-sm text-muted-foreground mt-1">{p.desc}</p>
             <div className="mt-6 mb-6">
@@ -45,12 +61,18 @@ const PricingSection = () => (
             </div>
             <ul className="space-y-3 flex-1">
               {p.features.map((f) => (
-                <li key={f} className="flex items-center gap-2 text-sm text-secondary-foreground">
+                <li key={f} className="flex items-center gap-2 text-sm text-navy-muted">
                   <Check size={16} className="text-wasync shrink-0" /> {f}
                 </li>
               ))}
             </ul>
-            <button className={`mt-8 w-full rounded-lg py-3 text-sm font-semibold transition-all ${p.highlight ? "bg-primary text-primary-foreground hover:opacity-90" : "border border-border text-foreground hover:bg-accent"}`}>
+            <button
+              className={`mt-8 w-full rounded-full py-3.5 text-sm font-semibold transition-all ${
+                p.featured
+                  ? "bg-primary text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/20"
+                  : "bg-secondary text-foreground hover:bg-secondary/80"
+              }`}
+            >
               {p.price === "Custom" ? "Contact Sales" : "Get Started"}
             </button>
           </motion.div>

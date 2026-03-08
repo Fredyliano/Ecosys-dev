@@ -1,11 +1,11 @@
 import { Twitter, Linkedin, Github } from "lucide-react";
 
 const Footer = () => (
-  <footer className="border-t border-border/50 py-16">
+  <footer className="py-20 border-t border-foreground/5">
     <div className="container">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
         <div>
-          <span className="text-lg font-bold text-gradient-brand">Ecosystem</span>
+          <span className="text-lg font-extrabold text-gradient-brand">Ecosystem</span>
           <p className="mt-3 text-xs text-muted-foreground">Full customer lifecycle automation.</p>
         </div>
         <div>
@@ -33,7 +33,7 @@ const Footer = () => (
           </div>
         </div>
       </div>
-      <div className="mt-12 pt-8 border-t border-border/50 text-center text-xs text-muted-foreground">
+      <div className="mt-16 pt-8 border-t border-foreground/5 text-center text-xs text-muted-foreground">
         © 2026 Ecosystem. All rights reserved.
       </div>
     </div>
