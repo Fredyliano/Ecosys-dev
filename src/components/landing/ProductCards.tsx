@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageSquare, BarChart3, Bot, Check, TrendingUp, Users, ShieldCheck, Activity, Send, Zap } from "lucide-react";
+import { MessageSquare, BarChart3, Bot, Check, Send, Activity, Users } from "lucide-react";
 
 const products = [
   {
@@ -16,7 +16,6 @@ const products = [
       "Multi-sender WhatsApp orchestration",
       "Phone farming system",
     ],
-    span: "md:col-span-2 md:row-span-2",
     mockup: "campaign",
   },
   {
@@ -32,7 +31,6 @@ const products = [
       "AI personalized message generation",
       "High-performance Rust engine",
     ],
-    span: "md:col-span-1",
     mockup: "segments",
   },
   {
@@ -48,12 +46,10 @@ const products = [
       "Contact management and analytics",
       "RBAC security system",
     ],
-    span: "md:col-span-1",
     mockup: "chat",
   },
 ];
 
-/* Mini UI mockups embedded in cards */
 const CampaignMockup = () => (
   <div className="glass-container p-5 space-y-3">
     <div className="flex items-center justify-between">
@@ -148,7 +144,7 @@ const ProductCards = () => (
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-3 gap-6 auto-rows-auto">
+      <div className="grid md:grid-cols-3 gap-6">
         {products.map((p, i) => {
           const Mockup = mockups[p.mockup];
           return (
@@ -157,8 +153,8 @@ const ProductCards = () => (
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
-              className={`premium-card ${p.span}`}
+              transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
+              className="premium-card"
             >
               <div className="p-8 md:p-10 h-full flex flex-col">
                 <div className={`${p.bg} rounded-2xl w-14 h-14 flex items-center justify-center`}>
