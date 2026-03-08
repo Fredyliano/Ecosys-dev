@@ -45,7 +45,7 @@ const Interactive3DCard: React.FC<Interactive3DCardProps> = ({ children, classNa
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      className={`relative overflow-hidden bg-card border-0 ${className}`}
+      className={`relative overflow-visible bg-card border-0 ${className}`}
       style={{
         borderRadius: "2rem",
         perspective: "1000px",
