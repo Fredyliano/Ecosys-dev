@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageSquare, BarChart3, Bot, Check, Send, Activity, Users } from "lucide-react";
+import Interactive3DCard from "./Interactive3DCard";
 
 const products = [
   {
@@ -130,8 +131,18 @@ const mockups: Record<string, () => JSX.Element> = {
 };
 
 const ProductCards = () => (
-  <section id="products" className="py-32">
-    <div className="container">
+  <section id="products" className="py-32 relative overflow-hidden">
+    {/* Parallax blob */}
+    <motion.div
+      className="absolute -top-20 -left-20 w-[500px] h-[500px] rounded-full opacity-20 blur-[120px] pointer-events-none"
+      style={{ background: "hsl(var(--tea-green))" }}
+      initial={{ y: 0 }}
+      whileInView={{ y: -30 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1.5 }}
+    />
+
+    <div className="container relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -148,14 +159,7 @@ const ProductCards = () => (
         {products.map((p, i) => {
           const Mockup = mockups[p.mockup];
           return (
-            <motion.div
-              key={p.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
-              className="premium-card"
-            >
+            <Interactive3DCard key={p.name} index={i} className="h-full">
               <div className="p-8 md:p-10 h-full flex flex-col">
                 <div className={`${p.bg} rounded-2xl w-14 h-14 flex items-center justify-center`}>
                   <p.icon size={24} className={p.color} />
@@ -174,7 +178,7 @@ const ProductCards = () => (
                   <Mockup />
                 </div>
               </div>
-            </motion.div>
+            </Interactive3DCard>
           );
         })}
       </div>
