@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageSquare, BarChart3, Bot } from "lucide-react";
+import { MessageSquare, BarChart3, Bot, ChevronRight } from "lucide-react";
 
 const items = [
   { name: "Wasync", desc: "WhatsApp Blast & Farming", icon: MessageSquare, color: "text-wasync", bg: "bg-wasync/10" },
@@ -20,7 +20,6 @@ const EcosystemSection = () => (
         <p className="mt-4 text-navy-muted max-w-xl mx-auto">Three products. One pipeline. Full lifecycle automation.</p>
       </motion.div>
 
-      {/* Animated step flow */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
         {items.map((item, i) => (
           <div key={item.name} className="flex items-center gap-0">
@@ -38,15 +37,15 @@ const EcosystemSection = () => (
               <p className="text-sm text-muted-foreground mt-2">{item.desc}</p>
             </motion.div>
             {i < items.length - 1 && (
-              <div className="hidden md:flex items-center px-4">
+              <div className="hidden md:flex items-center px-3">
                 <motion.div
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + i * 0.15, duration: 0.4 }}
-                  className="w-16 h-[2px] bg-foreground/10 origin-left"
+                  className="w-12 h-[2px] bg-foreground/10 origin-left"
                 />
-                <div className="w-2 h-2 rounded-full bg-primary shrink-0" />
+                <ChevronRight size={16} className="text-primary shrink-0 -ml-1" />
               </div>
             )}
           </div>

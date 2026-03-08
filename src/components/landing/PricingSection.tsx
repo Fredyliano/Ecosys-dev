@@ -26,7 +26,7 @@ const plans = [
 ];
 
 const PricingSection = () => (
-  <section id="pricing" className="py-32">
+  <section id="pricing" className="py-32 section-teal">
     <div className="container">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ const PricingSection = () => (
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
+            transition={{ delay: i * 0.12 }}
             className={`premium-card p-8 md:p-10 flex flex-col ${
               p.featured ? "gradient-border-orange" : ""
             }`}
@@ -69,7 +69,7 @@ const PricingSection = () => (
             <button
               className={`mt-8 w-full rounded-full py-3.5 text-sm font-semibold transition-all ${
                 p.featured
-                  ? "bg-primary text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/20"
+                  ? "btn-primary-glow justify-center"
                   : "bg-secondary text-foreground hover:bg-secondary/80"
               }`}
             >

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageSquare, BarChart3, Bot, Check, Play } from "lucide-react";
+import { MessageSquare, BarChart3, Bot, Check, TrendingUp, Users, ShieldCheck, Activity, Send, Zap } from "lucide-react";
 
 const products = [
   {
@@ -17,6 +17,7 @@ const products = [
       "Phone farming system",
     ],
     span: "md:col-span-2 md:row-span-2",
+    mockup: "campaign",
   },
   {
     name: "Fluxor",
@@ -32,6 +33,7 @@ const products = [
       "High-performance Rust engine",
     ],
     span: "md:col-span-1",
+    mockup: "segments",
   },
   {
     name: "Sentinel",
@@ -47,8 +49,89 @@ const products = [
       "RBAC security system",
     ],
     span: "md:col-span-1",
+    mockup: "chat",
   },
 ];
+
+/* Mini UI mockups embedded in cards */
+const CampaignMockup = () => (
+  <div className="glass-container p-5 space-y-3">
+    <div className="flex items-center justify-between">
+      <span className="text-xs font-semibold text-foreground">Campaign Dashboard</span>
+      <span className="text-[10px] px-2 py-0.5 rounded-full gradient-accent text-white font-medium">Live</span>
+    </div>
+    <div className="flex gap-3">
+      {[
+        { label: "Sent", value: "12,847", icon: Send },
+        { label: "Delivered", value: "98.2%", icon: Activity },
+        { label: "Replied", value: "3,241", icon: MessageSquare },
+      ].map((s) => (
+        <div key={s.label} className="flex-1 rounded-xl bg-secondary/80 p-3">
+          <s.icon size={12} className="text-wasync mb-1" />
+          <p className="text-sm font-bold text-foreground">{s.value}</p>
+          <p className="text-[10px] text-muted-foreground">{s.label}</p>
+        </div>
+      ))}
+    </div>
+    <div className="h-12 rounded-lg bg-secondary/60 flex items-end gap-1 px-2 pb-1">
+      {[40, 65, 45, 80, 55, 90, 70, 85, 60, 95, 75, 88].map((h, i) => (
+        <div key={i} className="flex-1 rounded-t bg-wasync/30" style={{ height: `${h}%` }} />
+      ))}
+    </div>
+  </div>
+);
+
+const SegmentMockup = () => (
+  <div className="glass-container p-4 space-y-2">
+    {[
+      { label: "VIP", pct: 85, color: "bg-fluxor" },
+      { label: "At-Risk", pct: 45, color: "bg-destructive/60" },
+      { label: "Dormant", pct: 30, color: "bg-muted-foreground/30" },
+    ].map((s) => (
+      <div key={s.label} className="space-y-1">
+        <div className="flex justify-between text-[10px]">
+          <span className="font-medium text-foreground">{s.label}</span>
+          <span className="text-muted-foreground">{s.pct}%</span>
+        </div>
+        <div className="h-1.5 rounded-full bg-secondary">
+          <div className={`h-full rounded-full ${s.color}`} style={{ width: `${s.pct}%` }} />
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
+const ChatMockup = () => (
+  <div className="glass-container p-4 space-y-2">
+    <div className="flex items-start gap-2">
+      <div className="w-6 h-6 rounded-full bg-sentinel/20 flex items-center justify-center shrink-0">
+        <Bot size={10} className="text-sentinel" />
+      </div>
+      <div className="rounded-2xl rounded-tl-sm bg-secondary/80 px-3 py-2 text-[11px] text-foreground">
+        Order #4821 has been shipped. Tracking sent to customer.
+      </div>
+    </div>
+    <div className="flex items-center gap-2 ml-8">
+      <div className="px-2 py-1 rounded-full text-[9px] font-medium text-white" style={{ background: "hsl(var(--success))" }}>
+        ✓ Action Executed
+      </div>
+    </div>
+    <div className="flex items-start gap-2 flex-row-reverse">
+      <div className="w-6 h-6 rounded-full bg-fluxor/20 flex items-center justify-center shrink-0">
+        <Users size={10} className="text-fluxor" />
+      </div>
+      <div className="rounded-2xl rounded-tr-sm bg-primary/10 px-3 py-2 text-[11px] text-foreground">
+        Can you also send a satisfaction survey?
+      </div>
+    </div>
+  </div>
+);
+
+const mockups: Record<string, () => JSX.Element> = {
+  campaign: CampaignMockup,
+  segments: SegmentMockup,
+  chat: ChatMockup,
+};
 
 const ProductCards = () => (
   <section id="products" className="py-32">
@@ -65,43 +148,39 @@ const ProductCards = () => (
         </p>
       </motion.div>
 
-      {/* Bento Grid */}
       <div className="grid md:grid-cols-3 gap-6 auto-rows-auto">
-        {products.map((p, i) => (
-          <motion.div
-            key={p.name}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.12 }}
-            className={`premium-card ${p.span}`}
-          >
-            <div className="p-8 md:p-10 h-full flex flex-col">
-              <div className={`${p.bg} rounded-2xl w-14 h-14 flex items-center justify-center`}>
-                <p.icon size={24} className={p.color} />
-              </div>
-              <h3 className={`mt-5 text-2xl font-bold ${p.color}`}>{p.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{p.tagline}</p>
-              <ul className="mt-6 space-y-3 flex-1">
-                {p.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-navy-muted">
-                    <Check size={16} className={`${p.color} mt-0.5 shrink-0`} />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              {/* Media container with glassmorphism */}
-              <div className="mt-8 glass-container h-44 flex items-center justify-center">
-                <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                  <div className="w-12 h-12 rounded-full bg-foreground/5 flex items-center justify-center">
-                    <Play size={18} className="ml-0.5" />
-                  </div>
-                  <span className="text-xs">Watch Demo</span>
+        {products.map((p, i) => {
+          const Mockup = mockups[p.mockup];
+          return (
+            <motion.div
+              key={p.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15 }}
+              className={`premium-card ${p.span}`}
+            >
+              <div className="p-8 md:p-10 h-full flex flex-col">
+                <div className={`${p.bg} rounded-2xl w-14 h-14 flex items-center justify-center`}>
+                  <p.icon size={24} className={p.color} />
+                </div>
+                <h3 className={`mt-5 text-2xl font-bold ${p.color}`}>{p.name}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{p.tagline}</p>
+                <ul className="mt-6 space-y-3 flex-1">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-navy-muted">
+                      <Check size={16} className={`${p.color} mt-0.5 shrink-0`} />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8">
+                  <Mockup />
                 </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   </section>
