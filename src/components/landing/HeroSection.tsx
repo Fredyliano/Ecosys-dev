@@ -27,28 +27,23 @@ const AnimatedText = ({ text, className }: { text: string; className?: string })
 );
 
 const HeroSection = () => (
-  <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-    {/* Aurora mesh gradient background */}
-    <div className="absolute inset-0" style={{ background: "hsl(200 45% 11%)" }}>
+  <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 bg-background">
+    {/* Soft warm radial glow */}
+    <div className="absolute inset-0 pointer-events-none">
       <div
-        className="aurora-blob-1 absolute w-[600px] h-[600px] rounded-full opacity-30 blur-[120px]"
-        style={{ background: "hsl(160 84% 36%)", top: "10%", left: "15%" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full opacity-20 blur-[120px]"
+        style={{ background: "hsl(27 100% 59%)" }}
       />
       <div
-        className="aurora-blob-2 absolute w-[500px] h-[500px] rounded-full opacity-25 blur-[100px]"
-        style={{ background: "hsl(27 100% 48%)", top: "30%", right: "10%" }}
+        className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full opacity-10 blur-[100px]"
+        style={{ background: "hsl(18 100% 48%)" }}
       />
-      <div
-        className="aurora-blob-3 absolute w-[700px] h-[700px] rounded-full opacity-20 blur-[140px]"
-        style={{ background: "hsl(180 60% 30%)", bottom: "0%", left: "40%" }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80" />
     </div>
 
     <div className="container relative z-10 py-32 text-center">
       <div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05]">
-          <AnimatedText text="One Ecosystem." className="text-white block" />
+          <AnimatedText text="One Ecosystem." className="text-navy block" />
           <br />
           <AnimatedText text="Full Customer Lifecycle." className="text-gradient-brand block" />
         </h1>
@@ -58,7 +53,7 @@ const HeroSection = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.4 }}
-        className="mt-6 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed text-white"
+        className="mt-6 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed text-muted-foreground"
       >
         From customer acquisition to engagement and retention — everything is automated through an integrated AI ecosystem.
       </motion.p>
@@ -67,7 +62,7 @@ const HeroSection = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.5 }}
-        className="mt-4 max-w-3xl mx-auto text-sm md:text-base leading-relaxed text-white/80"
+        className="mt-4 max-w-3xl mx-auto text-sm md:text-base leading-relaxed text-muted-foreground/80"
       >
         Our ecosystem is designed for businesses that need end-to-end automation across the entire customer lifecycle.
       </motion.p>
@@ -83,7 +78,7 @@ const HeroSection = () => (
         </button>
         <a
           href="#products"
-          className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+          className="inline-flex items-center gap-2 rounded-full border border-navy/20 px-8 py-3.5 text-sm font-semibold text-navy hover:bg-navy/5 transition-colors"
         >
           View Products
         </a>
@@ -114,19 +109,6 @@ const HeroSection = () => (
           </motion.div>
         ))}
       </motion.div>
-    </div>
-
-    {/* Diagonal bleed / slope at bottom */}
-    <div className="absolute bottom-0 left-0 right-0 overflow-hidden" style={{ height: "120px" }}>
-      <svg
-        viewBox="0 0 1440 120"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="absolute bottom-0 w-full h-full"
-        preserveAspectRatio="none"
-      >
-        <path d="M0 120L0 60L720 0L1440 60L1440 120L0 120Z" fill="hsl(0, 0%, 100%)" />
-      </svg>
     </div>
   </section>
 );
