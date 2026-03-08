@@ -101,9 +101,9 @@ const FluxorCard = () => (
 );
 
 const floatingCards = [
-  { id: 0, Card: WasyncCard, baseX: 160, baseY: -20, floatDuration: 4, floatDelay: 0, floatRange: 12 },
-  { id: 1, Card: SentinelCard, baseX: 90, baseY: 140, floatDuration: 5, floatDelay: 0.8, floatRange: 10 },
-  { id: 2, Card: FluxorCard, baseX: 180, baseY: 310, floatDuration: 4.5, floatDelay: 0.4, floatRange: 14 },
+  { id: 0, Card: WasyncCard, baseX: 180, baseY: -60, floatDuration: 4, floatDelay: 0, floatRange: 12 },
+  { id: 1, Card: SentinelCard, baseX: 110, baseY: 80, floatDuration: 5, floatDelay: 0.8, floatRange: 10 },
+  { id: 2, Card: FluxorCard, baseX: 200, baseY: 240, floatDuration: 4.5, floatDelay: 0.4, floatRange: 14 },
 ];
 
 const HeroSection = () => {
