@@ -6,8 +6,8 @@ const cases = [
     title: "New Customer Acquisition",
     desc: "Farm numbers and blast campaigns automatically. Reach thousands with AI-unique messages that avoid detection.",
     icon: Users,
-    color: "text-wasync",
-    bg: "bg-wasync/10",
+    color: "text-primary",
+    bg: "bg-primary/10",
   },
   {
     title: "Retention Campaigns",
@@ -27,8 +27,8 @@ const cases = [
     title: "Behavioral Analytics",
     desc: "Track every interaction, classify personas in real-time, and detect churn signals before they escalate.",
     icon: TrendingUp,
-    color: "text-fluxor",
-    bg: "bg-fluxor/10",
+    color: "text-primary",
+    bg: "bg-primary/10",
   },
 ];
 

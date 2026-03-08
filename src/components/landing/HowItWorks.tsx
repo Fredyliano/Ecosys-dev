@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Phone, Send, Zap, Bot } from "lucide-react";
 
 const steps = [
-  { step: 1, title: "Farm & prepare numbers", desc: "Wasync manages WhatsApp phone sessions at scale.", icon: Phone, color: "text-wasync", bg: "bg-wasync/10" },
-  { step: 2, title: "Blast your audience", desc: "Wasync broadcasts AI-unique messages to thousands.", icon: Send, color: "text-wasync", bg: "bg-wasync/10" },
+  { step: 1, title: "Farm & prepare numbers", desc: "Wasync manages WhatsApp phone sessions at scale.", icon: Phone, color: "text-primary", bg: "bg-primary/10" },
+  { step: 2, title: "Blast your audience", desc: "Wasync broadcasts AI-unique messages to thousands.", icon: Send, color: "text-primary", bg: "bg-primary/10" },
   { step: 3, title: "Engage automatically", desc: "Fluxor detects behavior triggers and sends personalized follow-ups.", icon: Zap, color: "text-fluxor", bg: "bg-fluxor/10" },
   { step: 4, title: "Automate operations", desc: "Sentinel AI agent handles conversations and executes backend actions.", icon: Bot, color: "text-sentinel", bg: "bg-sentinel/10" },
 ];

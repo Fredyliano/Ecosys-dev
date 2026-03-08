@@ -16,10 +16,10 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-md py-2"
-          : "bg-transparent py-5"
+          ? "bg-background/90 backdrop-blur-md py-2 shadow-sm"
+          : "bg-background/60 backdrop-blur-sm py-4"
       }`}
-      style={scrolled ? { borderBottom: "1px solid hsl(200 45% 11% / 0.1)" } : undefined}
+      style={{ borderBottom: "1px solid hsl(200 20% 90% / 0.5)" }}
     >
       <div className="container flex items-center justify-between">
         <a href="#" className="text-xl font-extrabold tracking-tight">
@@ -30,9 +30,7 @@ const Navbar = () => {
             <a
               key={item}
               href={`#${item.toLowerCase().replace(/\s/g, "-")}`}
-              className={`text-sm transition-colors ${
-                scrolled ? "text-navy-muted hover:text-foreground" : "text-white/70 hover:text-white"
-              }`}
+              className="text-sm text-navy-muted hover:text-foreground transition-colors"
             >
               {item}
             </a>
@@ -41,7 +39,7 @@ const Navbar = () => {
             Request Demo <ArrowRight size={14} />
           </button>
         </div>
-        <button className={`md:hidden ${scrolled ? "text-foreground" : "text-white"}`} onClick={() => setOpen(!open)}>
+        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
