@@ -16,12 +16,13 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-foreground/10 py-2"
+          ? "bg-background/80 backdrop-blur-md py-2"
           : "bg-transparent py-5"
       }`}
+      style={scrolled ? { borderBottom: "1px solid hsl(200 45% 11% / 0.1)" } : undefined}
     >
       <div className="container flex items-center justify-between">
-        <a href="#" className="text-xl font-extrabold tracking-tight text-foreground">
+        <a href="#" className="text-xl font-extrabold tracking-tight">
           <span className="text-gradient-brand">Ecosystem</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
@@ -29,16 +30,18 @@ const Navbar = () => {
             <a
               key={item}
               href={`#${item.toLowerCase().replace(/\s/g, "-")}`}
-              className="text-sm text-navy-muted hover:text-foreground transition-colors"
+              className={`text-sm transition-colors ${
+                scrolled ? "text-navy-muted hover:text-foreground" : "text-white/70 hover:text-white"
+              }`}
             >
               {item}
             </a>
           ))}
-          <button className="group inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity">
-            Request Demo <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+          <button className="btn-primary-glow px-5 py-2.5 text-sm">
+            Request Demo <ArrowRight size={14} />
           </button>
         </div>
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
+        <button className={`md:hidden ${scrolled ? "text-foreground" : "text-white"}`} onClick={() => setOpen(!open)}>
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
@@ -61,7 +64,7 @@ const Navbar = () => {
                   {item}
                 </a>
               ))}
-              <button className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground w-fit">
+              <button className="btn-primary-glow px-5 py-2.5 text-sm w-fit">
                 Request Demo
               </button>
             </div>

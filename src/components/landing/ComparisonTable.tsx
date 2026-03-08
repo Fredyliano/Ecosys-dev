@@ -22,7 +22,7 @@ const solutions = [
 ];
 
 const ComparisonTable = () => (
-  <section className="py-32">
+  <section className="py-32 section-teal">
     <div className="container">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -40,8 +40,8 @@ const ComparisonTable = () => (
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="rounded-3xl p-8 md:p-10"
-          style={{ backgroundColor: "hsl(0 70% 97%)" }}
+          className="p-8 md:p-10"
+          style={{ borderRadius: "2.5rem", backgroundColor: "hsl(0 70% 97%)" }}
         >
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-xl bg-destructive/10 flex items-center justify-center">
