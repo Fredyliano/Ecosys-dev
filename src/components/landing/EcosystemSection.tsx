@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { MessageSquare, BarChart3, Bot, ChevronRight } from "lucide-react";
 
 const items = [
-  { name: "Wasync", desc: "WhatsApp Blast & Farming", icon: MessageSquare, color: "text-wasync", bg: "bg-wasync/10" },
+  { name: "Wasync", desc: "WhatsApp Blast & Farming", icon: MessageSquare, color: "text-primary", bg: "bg-primary/10" },
   { name: "Fluxor", desc: "Behavioral Marketing Engine", icon: BarChart3, color: "text-fluxor", bg: "bg-fluxor/10" },
   { name: "Sentinel", desc: "AI CRM & Support", icon: Bot, color: "text-sentinel", bg: "bg-sentinel/10" },
 ];

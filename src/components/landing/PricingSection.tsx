@@ -47,7 +47,7 @@ const PricingSection = () => (
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
             className={`premium-card p-8 md:p-10 flex flex-col ${
-              p.featured ? "gradient-border-orange" : ""
+              p.featured ? "gradient-border-green" : ""
             }`}
           >
             {p.featured && (
@@ -62,7 +62,7 @@ const PricingSection = () => (
             <ul className="space-y-3 flex-1">
               {p.features.map((f) => (
                 <li key={f} className="flex items-center gap-2 text-sm text-navy-muted">
-                  <Check size={16} className="text-wasync shrink-0" /> {f}
+                  <Check size={16} className="text-primary shrink-0" /> {f}
                 </li>
               ))}
             </ul>
@@ -70,7 +70,7 @@ const PricingSection = () => (
               className={`mt-8 w-full rounded-full py-3.5 text-sm font-semibold transition-all ${
                 p.featured
                   ? "btn-primary-glow justify-center"
-                  : "bg-secondary text-foreground hover:bg-secondary/80"
+                  : "bg-secondary text-foreground hover:bg-primary/10"
               }`}
             >
               {p.price === "Custom" ? "Contact Sales" : "Get Started"}

@@ -6,8 +6,8 @@ const products = [
     name: "Wasync",
     tagline: "AI-Powered WhatsApp Blast & Farming",
     icon: MessageSquare,
-    color: "text-wasync",
-    bg: "bg-wasync/10",
+    color: "text-primary",
+    bg: "bg-primary/10",
     features: [
       "AI unique messaging (LLM rewrite per recipient)",
       "Anti-ban technology with sender rotation",
@@ -63,7 +63,7 @@ const CampaignMockup = () => (
         { label: "Replied", value: "3,241", icon: MessageSquare },
       ].map((s) => (
         <div key={s.label} className="flex-1 rounded-xl bg-secondary/80 p-3">
-          <s.icon size={12} className="text-wasync mb-1" />
+          <s.icon size={12} className="text-primary mb-1" />
           <p className="text-sm font-bold text-foreground">{s.value}</p>
           <p className="text-[10px] text-muted-foreground">{s.label}</p>
         </div>
@@ -71,7 +71,7 @@ const CampaignMockup = () => (
     </div>
     <div className="h-12 rounded-lg bg-secondary/60 flex items-end gap-1 px-2 pb-1">
       {[40, 65, 45, 80, 55, 90, 70, 85, 60, 95, 75, 88].map((h, i) => (
-        <div key={i} className="flex-1 rounded-t bg-wasync/30" style={{ height: `${h}%` }} />
+        <div key={i} className="flex-1 rounded-t bg-primary/30" style={{ height: `${h}%` }} />
       ))}
     </div>
   </div>
@@ -80,8 +80,8 @@ const CampaignMockup = () => (
 const SegmentMockup = () => (
   <div className="glass-container p-4 space-y-2">
     {[
-      { label: "VIP", pct: 85, color: "bg-fluxor" },
-      { label: "At-Risk", pct: 45, color: "bg-destructive/60" },
+      { label: "VIP", pct: 85, color: "bg-primary" },
+      { label: "At-Risk", pct: 45, color: "bg-fluxor" },
       { label: "Dormant", pct: 30, color: "bg-muted-foreground/30" },
     ].map((s) => (
       <div key={s.label} className="space-y-1">

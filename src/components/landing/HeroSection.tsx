@@ -1,11 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageSquare, BarChart3, Bot, ArrowRight } from "lucide-react";
-
-const products = [
-  { name: "Wasync", icon: MessageSquare, color: "text-wasync", bg: "bg-wasync/10", delay: 0.6, floatDuration: 3.2 },
-  { name: "Fluxor", icon: BarChart3, color: "text-fluxor", bg: "bg-fluxor/10", delay: 0.8, floatDuration: 3.8 },
-  { name: "Sentinel", icon: Bot, color: "text-sentinel", bg: "bg-sentinel/10", delay: 1.0, floatDuration: 4.4 },
-];
+import { ArrowRight, Play } from "lucide-react";
 
 const letterVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -26,89 +20,187 @@ const AnimatedText = ({ text, className }: { text: string; className?: string })
   </span>
 );
 
+const stats = [
+  { value: "10x", label: "Faster Support" },
+  { value: "85%", label: "Automation Rate" },
+  { value: "10,000+", label: "Messages/Day" },
+];
+
 const HeroSection = () => (
-  <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 bg-background">
-    {/* Soft warm radial glow */}
+  <section className="relative min-h-screen flex items-center overflow-hidden pt-16 bg-background">
+    {/* Soft green radial glow */}
     <div className="absolute inset-0 pointer-events-none">
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full opacity-20 blur-[120px]"
-        style={{ background: "hsl(27 100% 59%)" }}
+        className="absolute top-[30%] right-[20%] w-[700px] h-[500px] rounded-full opacity-15 blur-[120px]"
+        style={{ background: "hsl(104 58% 41%)" }}
       />
       <div
-        className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full opacity-10 blur-[100px]"
-        style={{ background: "hsl(18 100% 48%)" }}
+        className="absolute top-[50%] right-[30%] w-[400px] h-[300px] rounded-full opacity-10 blur-[100px]"
+        style={{ background: "hsl(160 100% 36%)" }}
       />
     </div>
 
-    <div className="container relative z-10 py-32 text-center">
-      <div>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05]">
-          <AnimatedText text="One Ecosystem." className="text-navy block" />
-          <br />
-          <AnimatedText text="Full Customer Lifecycle." className="text-gradient-brand block" />
-        </h1>
-      </div>
+    <div className="container relative z-10 py-20">
+      <div className="grid lg:grid-cols-2 gap-16 items-center">
+        {/* Left: Text */}
+        <div>
+          <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight leading-[1.05]">
+            <AnimatedText text="One Ecosystem." className="text-foreground block" />
+            <AnimatedText text="Full Customer" className="text-gradient-brand block mt-2" />
+            <AnimatedText text="Lifecycle." className="text-gradient-brand block" />
+          </h1>
 
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.4 }}
-        className="mt-6 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed text-muted-foreground"
-      >
-        From customer acquisition to engagement and retention — everything is automated through an integrated AI ecosystem.
-      </motion.p>
-
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.5 }}
-        className="mt-4 max-w-3xl mx-auto text-sm md:text-base leading-relaxed text-muted-foreground/80"
-      >
-        Our ecosystem is designed for businesses that need end-to-end automation across the entire customer lifecycle.
-      </motion.p>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.6 }}
-        className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
-      >
-        <button className="btn-primary-glow px-10 py-4 text-sm group">
-          Request Demo <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-        </button>
-        <a
-          href="#products"
-          className="inline-flex items-center gap-2 rounded-full border border-navy/20 px-8 py-3.5 text-sm font-semibold text-navy hover:bg-navy/5 transition-colors"
-        >
-          View Products
-        </a>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.8 }}
-        className="mt-24 flex justify-center gap-12 md:gap-20"
-      >
-        {products.map((p) => (
-          <motion.div
-            key={p.name}
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: p.delay, duration: 0.5 }}
-            className="flex flex-col items-center gap-3 group"
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="mt-6 max-w-lg text-base md:text-lg leading-relaxed text-muted-foreground"
           >
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: p.floatDuration, repeat: Infinity, ease: "easeInOut" }}
-              className={`rounded-2xl ${p.bg} p-5 ${p.color} group-hover:scale-110 transition-transform`}
+            From WhatsApp farming to AI-driven CRM — Sentinel automates every stage of your player communication pipeline. Zero manual work.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6 }}
+            className="mt-8 flex flex-wrap gap-4"
+          >
+            <button className="btn-primary-glow px-8 py-4 text-sm group">
+              Get a Demo <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+            <a
+              href="#how-it-works"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-primary/30 px-7 py-3.5 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors"
             >
-              <p.icon size={28} />
-            </motion.div>
-            <span className={`text-sm font-semibold ${p.color}`}>{p.name}</span>
+              Watch How It Works <Play size={14} className="fill-primary" />
+            </a>
           </motion.div>
-        ))}
-      </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.8 }}
+            className="mt-12 flex flex-wrap gap-6"
+          >
+            {stats.map((s) => (
+              <div key={s.label} className="flex items-center gap-2 rounded-full bg-secondary px-5 py-2.5">
+                <span className="text-sm font-extrabold text-primary">{s.value}</span>
+                <span className="text-xs text-muted-foreground">{s.label}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Right: Ecosystem Diagram */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="relative hidden lg:flex items-center justify-center min-h-[500px]"
+        >
+          {/* Connection lines */}
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 500" fill="none">
+            {/* W to S */}
+            <motion.line
+              x1="250" y1="100" x2="150" y2="350"
+              stroke="hsl(30 100% 59%)" strokeWidth="2.5" strokeLinecap="round"
+              initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+            />
+            {/* W to F */}
+            <motion.line
+              x1="250" y1="100" x2="370" y2="350"
+              stroke="hsl(160 100% 36%)" strokeWidth="2.5" strokeLinecap="round"
+              initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
+              transition={{ delay: 1.0, duration: 0.6 }}
+            />
+            {/* S to F */}
+            <motion.line
+              x1="150" y1="350" x2="370" y2="350"
+              stroke="hsl(104 58% 41%)" strokeWidth="2.5" strokeLinecap="round"
+              initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
+              transition={{ delay: 1.2, duration: 0.6 }}
+            />
+          </svg>
+
+          {/* Wasync circle */}
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[8%] left-1/2 -translate-x-1/2 flex flex-col items-center"
+          >
+            <div className="w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl font-extrabold shadow-lg"
+              style={{ background: "linear-gradient(135deg, hsl(104 58% 41%), hsl(160 100% 36%))" }}>
+              W
+            </div>
+            <span className="mt-2 text-sm font-semibold text-foreground">Wasync</span>
+          </motion.div>
+
+          {/* Sentinel circle */}
+          <motion.div
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            className="absolute bottom-[15%] left-[15%] flex flex-col items-center"
+          >
+            <div className="w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl font-extrabold shadow-lg"
+              style={{ background: "linear-gradient(135deg, hsl(30 100% 50%), hsl(30 100% 59%))" }}>
+              S
+            </div>
+            <span className="mt-2 text-sm font-semibold text-foreground">Sentinel</span>
+          </motion.div>
+
+          {/* Fluxor circle */}
+          <motion.div
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute bottom-[15%] right-[10%] flex flex-col items-center"
+          >
+            <div className="w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl font-extrabold shadow-lg"
+              style={{ background: "linear-gradient(135deg, hsl(30 100% 50%), hsl(30 100% 65%))" }}>
+              F
+            </div>
+            <span className="mt-2 text-sm font-semibold text-foreground">Fluxor</span>
+          </motion.div>
+
+          {/* Floating labels */}
+          <motion.div
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+            className="absolute top-[25%] left-[5%] bg-card rounded-full px-4 py-2 shadow-md text-xs font-medium text-foreground"
+          >
+            97% SLA
+          </motion.div>
+          <motion.div
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+            className="absolute top-[15%] right-[2%] bg-card rounded-full px-4 py-2 shadow-md text-xs font-medium text-foreground flex items-center gap-1"
+          >
+            AI Rewrite <span className="text-primary">✓</span>
+          </motion.div>
+          <motion.div
+            animate={{ y: [0, -7, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+            className="absolute bottom-[38%] left-[2%] bg-card rounded-full px-4 py-2 shadow-md text-xs font-medium text-foreground"
+          >
+            42s First Response
+          </motion.div>
+          <motion.div
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+            className="absolute top-[45%] right-[0%] bg-card rounded-full px-4 py-2 shadow-md text-xs font-medium text-foreground"
+          >
+            Anti-ban Active
+          </motion.div>
+        </motion.div>
+      </div>
+    </div>
+
+    {/* Diagonal bleed */}
+    <div className="absolute bottom-0 left-0 right-0">
+      <svg viewBox="0 0 1440 80" className="w-full" preserveAspectRatio="none">
+        <path d="M0,80 L1440,0 L1440,80 Z" fill="hsl(0 0% 100%)" />
+      </svg>
     </div>
   </section>
 );

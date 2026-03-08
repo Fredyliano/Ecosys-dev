@@ -10,7 +10,7 @@ const FinalCTA = () => (
         viewport={{ once: true }}
         className="premium-card text-center py-20 px-8 md:px-16 relative overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-wasync/5 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-sentinel/5 pointer-events-none" />
         <div className="relative z-10">
           <h2 className="text-4xl md:text-6xl font-extrabold text-foreground max-w-3xl mx-auto leading-tight">
             Ready to automate your entire customer pipeline?

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroSection";
@@ -18,12 +17,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background scroll-smooth">
-      {/* Scroll progress bar */}
+      {/* Scroll progress bar - green */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-[3px] z-[60] origin-left"
         style={{
           scaleX: scrollYProgress,
-          background: "linear-gradient(90deg, hsl(27 100% 48%), hsl(18 100% 48%))",
+          background: "linear-gradient(90deg, hsl(104 58% 41%), hsl(115 56% 28%))",
         }}
       />
       <Navbar />
