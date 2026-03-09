@@ -1,6 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Play, MessageSquare, Bot, BarChart3, Send, Phone, Zap, Shield } from "lucide-react";
 import { useState, useEffect } from "react";
+import wasyncImg from "../Image/wasync.png";
+import sentinelImg from "../Image/sentinel.png";
+import fluxorImg from "../Image/plan.png";
 
 const letterVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -30,80 +33,26 @@ const stats = [
 /* ── Floating Product Cards ── */
 
 const WasyncCard = () => (
-  <div className="w-[260px] rounded-2xl overflow-hidden shadow-xl border border-primary/10" style={{ background: "linear-gradient(145deg, hsl(104 58% 97%), #fff)" }}>
-    <div className="px-4 py-3 flex items-center gap-2 border-b border-primary/10">
-      <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, hsl(104 50% 51%), hsl(115 56% 28%))" }}>
-        <MessageSquare size={13} className="text-white" />
-      </div>
-      <span className="text-xs font-bold text-foreground">Wasync</span>
-      <span className="ml-auto text-[9px] font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">Live</span>
-    </div>
-    <div className="p-4 space-y-2.5">
-      <div className="flex items-center gap-2">
-        <Phone size={11} className="text-primary" />
-        <div className="flex-1 h-2 rounded-full bg-primary/15"><div className="h-full rounded-full w-[88%]" style={{ background: "linear-gradient(90deg, hsl(104 50% 51%), hsl(115 56% 28%))" }} /></div>
-        <span className="text-[9px] font-bold text-primary">88%</span>
-      </div>
-      <div className="flex items-center gap-2">
-        <Send size={11} className="text-primary" />
-        <div className="flex-1 h-2 rounded-full bg-primary/15"><div className="h-full rounded-full w-[72%]" style={{ background: "linear-gradient(90deg, hsl(104 50% 51%), hsl(115 56% 28%))" }} /></div>
-        <span className="text-[9px] font-bold text-primary">72%</span>
-      </div>
-      <div className="text-[10px] text-muted-foreground mt-1">4,230 messages queued</div>
-    </div>
-  </div>
+  <img
+    src={wasyncImg}
+    alt="Wasync"
+    className="w-[450px] rounded-2xl shadow-2xl"
+  />
+
 );
 
 const SentinelCard = () => (
-  <div className="w-[240px] rounded-2xl overflow-hidden shadow-xl border border-sentinel/10" style={{ background: "linear-gradient(145deg, hsl(200 74% 12%), hsl(200 74% 16%))" }}>
-    <div className="px-4 py-3 flex items-center gap-2 border-b border-white/10">
-      <div className="w-7 h-7 rounded-lg bg-teal/20 flex items-center justify-center">
-        <Bot size={13} className="text-teal" />
-      </div>
-      <span className="text-xs font-bold text-white">Sentinel AI</span>
-      <span className="ml-auto flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" /><span className="text-[9px] text-teal">Active</span></span>
-    </div>
-    <div className="p-4 space-y-2">
-      <div className="flex items-start gap-2">
-        <Shield size={10} className="text-teal mt-0.5" />
-        <div className="text-[10px] text-white/80 bg-white/5 rounded-lg px-2.5 py-1.5">Auto-reply sent ✓</div>
-      </div>
-      <div className="flex items-start gap-2">
-        <Zap size={10} className="text-teal mt-0.5" />
-        <div className="text-[10px] text-white/80 bg-white/5 rounded-lg px-2.5 py-1.5">CRM updated • Lead scored</div>
-      </div>
-      <div className="text-[9px] text-white/40 mt-1">3 actions executed in 1.2s</div>
-    </div>
-  </div>
+  <img
+    src={sentinelImg}
+    alt="sentinel"
+    className="w-[450px] rounded-2xl shadow-2xl"
+  />
 );
 
-const FluxorCard = () => (
-  <div className="w-[250px] rounded-2xl overflow-hidden shadow-xl border border-fluxor/10" style={{ background: "linear-gradient(145deg, hsl(30 100% 98%), #fff)" }}>
-    <div className="px-4 py-3 flex items-center gap-2 border-b border-fluxor/10">
-      <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, hsl(30 100% 59%), hsl(18 100% 48%))" }}>
-        <BarChart3 size={13} className="text-white" />
-      </div>
-      <span className="text-xs font-bold text-foreground">Fluxor</span>
-      <span className="ml-auto text-[9px] font-medium bg-fluxor/10 px-2 py-0.5 rounded-full" style={{ color: "hsl(30 100% 50%)" }}>Tracking</span>
-    </div>
-    <div className="p-4">
-      <div className="flex items-end gap-[3px] h-14 mb-2">
-        {[35, 50, 40, 65, 55, 80, 70, 90, 60, 75].map((h, i) => (
-          <div key={i} className="flex-1 rounded-t transition-all" style={{ height: `${h}%`, background: `hsl(30 100% ${55 + i * 2}% / ${0.4 + i * 0.06})` }} />
-        ))}
-      </div>
-      <div className="flex justify-between text-[9px] text-muted-foreground">
-        <span>Engagement</span>
-        <span className="font-bold" style={{ color: "hsl(30 100% 50%)" }}>+34%</span>
-      </div>
-    </div>
-  </div>
-);
 
 const floatingCards = [
-  { id: 0, Card: WasyncCard, baseX: 180, baseY: -60, floatDuration: 4, floatDelay: 0, floatRange: 12 },
-  { id: 1, Card: SentinelCard, baseX: 110, baseY: 80, floatDuration: 5, floatDelay: 0.8, floatRange: 10 },
-  { id: 2, Card: FluxorCard, baseX: 200, baseY: 240, floatDuration: 4.5, floatDelay: 0.4, floatRange: 14 },
+  { id: 0, Card: WasyncCard, baseX: 150, baseY: -60, floatDuration: 4, floatDelay: 0, floatRange: 12 },
+  { id: 1, Card: SentinelCard, baseX: 0, baseY: 80, floatDuration: 5, floatDelay: 0.8, floatRange: 10 },
 ];
 
 const HeroSection = () => {
@@ -128,9 +77,17 @@ const HeroSection = () => {
           {/* Left: Text */}
           <div>
             <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight leading-[1.05]">
-              <AnimatedText text="One Ecosystem." className="text-foreground block" />
-              <AnimatedText text="Full Customer" className="text-gradient-brand block mt-2" />
-              <AnimatedText text="Lifecycle." className="text-gradient-brand block" />
+              <span className="block whitespace-nowrap">
+                <AnimatedText text="One Ecosystem" className="text-foreground" />
+              </span>
+
+              <span className="block mt-2">
+                <AnimatedText text="Full Customer" className="text-gradient-brand" />
+              </span>
+
+              <span className="block">
+                <AnimatedText text="Lifecycle" className="text-gradient-brand" />
+              </span>
             </h1>
 
             <motion.p

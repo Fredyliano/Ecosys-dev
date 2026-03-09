@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { MessageSquare, BarChart3, Bot, Check, Send, Activity, Users } from "lucide-react";
 import Interactive3DCard from "./Interactive3DCard";
+import featureWa from "../Image/featureWa.png";
+import featureSen from "../Image/featureSentinel.png";
 
 const products = [
   {
@@ -52,30 +54,11 @@ const products = [
 ];
 
 const CampaignMockup = () => (
-  <div className="glass-container p-5 space-y-3">
-    <div className="flex items-center justify-between">
-      <span className="text-xs font-semibold text-foreground">Campaign Dashboard</span>
-      <span className="text-[10px] px-2 py-0.5 rounded-full gradient-accent text-white font-medium">Live</span>
-    </div>
-    <div className="flex gap-3">
-      {[
-        { label: "Sent", value: "12,847", icon: Send },
-        { label: "Delivered", value: "98.2%", icon: Activity },
-        { label: "Replied", value: "3,241", icon: MessageSquare },
-      ].map((s) => (
-        <div key={s.label} className="flex-1 rounded-xl bg-secondary/80 p-3">
-          <s.icon size={12} className="text-primary mb-1" />
-          <p className="text-sm font-bold text-foreground">{s.value}</p>
-          <p className="text-[10px] text-muted-foreground">{s.label}</p>
-        </div>
-      ))}
-    </div>
-    <div className="h-12 rounded-lg bg-secondary/60 flex items-end gap-1 px-2 pb-1">
-      {[40, 65, 45, 80, 55, 90, 70, 85, 60, 95, 75, 88].map((h, i) => (
-        <div key={i} className="flex-1 rounded-t bg-primary/30" style={{ height: `${h}%` }} />
-      ))}
-    </div>
-  </div>
+  <img
+    src={featureWa}
+    alt="Wasync Dashboard"
+    className="w-[700px] h-[270px] rounded-xl border border-border shadow-lg"
+  />
 );
 
 const SegmentMockup = () => (
@@ -99,29 +82,11 @@ const SegmentMockup = () => (
 );
 
 const ChatMockup = () => (
-  <div className="glass-container p-4 space-y-2">
-    <div className="flex items-start gap-2">
-      <div className="w-6 h-6 rounded-full bg-sentinel/20 flex items-center justify-center shrink-0">
-        <Bot size={10} className="text-sentinel" />
-      </div>
-      <div className="rounded-2xl rounded-tl-sm bg-secondary/80 px-3 py-2 text-[11px] text-foreground">
-        Order #4821 has been shipped. Tracking sent to customer.
-      </div>
-    </div>
-    <div className="flex items-center gap-2 ml-8">
-      <div className="px-2 py-1 rounded-full text-[9px] font-medium text-white" style={{ background: "hsl(var(--success))" }}>
-        ✓ Action Executed
-      </div>
-    </div>
-    <div className="flex items-start gap-2 flex-row-reverse">
-      <div className="w-6 h-6 rounded-full bg-fluxor/20 flex items-center justify-center shrink-0">
-        <Users size={10} className="text-fluxor" />
-      </div>
-      <div className="rounded-2xl rounded-tr-sm bg-primary/10 px-3 py-2 text-[11px] text-foreground">
-        Can you also send a satisfaction survey?
-      </div>
-    </div>
-  </div>
+  <img
+    src={featureSen}
+    alt="Sentinel Dashboard"
+    className="w-[700px] h-[270px] rounded-xl border border-border shadow-lg"
+  />
 );
 
 const mockups: Record<string, () => JSX.Element> = {
